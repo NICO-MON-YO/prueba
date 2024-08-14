@@ -4,11 +4,23 @@
 <head>
     <title> Piedra, papel tijera
     </title>
+    <h1>
+        Elige una opcion entre piedra, papel y tijera tocando la imagen
+    </h1>
     <style>
+        h1 {
+            text-align: center;
+        }
+
         #botones {
             display: flex;
             justify-content: space-around;
             align-items: center;
+        }
+
+        #resultados {
+
+            display: none;
         }
     </style>
     <script>
@@ -24,100 +36,31 @@
             opcionUsuario = "papel";
             obtenerResultado();
         }
-        var opcionUsuario;
-        var partidasJugadas = 0;
-        var numAleatorio;
-        var opcionBot;
-        var resultado;
-        var puntosUsuario = 0;
-        var puntosBot = 0;
-        var opciones = ["piedra", "papel", "tijera"];
-
-        function obtenerResultado() {
-            numAleatorio = Math.floor(Math.random() * 3);
-            opcionBot = opciones[numAleatorio];
-
-            if (opcionUsuario === "piedra") {
-                switch (opcionBot) {
-                    case "piedra":
-                        resultado = "Empate";
-                        break;
-                    case "papel":
-                        resultado = "Punto para el bot";
-                        break;
-                    case "tijera":
-                        resultado = "Punto para el usuario";
-                        break;
-                }
-            } else if (opcionUsuario === "papel") {
-                switch (opcionBot) {
-                    case "piedra":
-                        resultado = "Punto para el usuario";
-                        break;
-                    case "papel":
-                        resultado = "Empate";
-                        break;
-                    case "tijera":
-                        resultado = "Punto para el bot";
-                        break;
-                }
-            } else if (opcionUsuario === "tijera") {
-                switch (opcionBot) {
-                    case "piedra":
-                        resultado = "Punto para el bot";
-                        break;
-                    case "papel":
-                        resultado = "Punto para el usuario";
-                        break;
-                    case "tijera":
-                        resultado = "Empate";
-                        break;
-                }
-            }
-
-            alert("la opcion del usuario es: " + opcionUsuario + ". Y la eleccion del bot es: " + opcionBot);
-
-            if (resultado === "Empate") {
-                alert("La partida terminó en empate, se repite");
-            } else {
-
-                alert("Ganador de la ronda: " + resultado);
-            }
-
-            if (resultado === "Punto para el usuario") {
-                puntosUsuario++;
-                partidasJugadas++;
-            }
-
-            if (resultado === "Punto para el bot") {
-                puntosBot++;
-                partidasJugadas++;
-            }
-            alert("El total de partidas hasta ahora son:" + partidasJugadas);
-            if (puntosUsuario > puntosBot) {
-                alert("El usuario ganó con " + puntosUsuario + " Y los puntos del bot fueron:  " + puntosBot);
-            } else if (puntosBot > puntosUsuario) {
-                alert("El Bot ganó la partida con " + puntosBot + " Y " + puntosUsuario + " puntos del usuario");
-            }
-        }
-
-
-
 
     </script>
+    <script src="ppt.js"></script>
 </head>
 
 <body>
     <div id="demo">
     </div>
     <div id="botones">
-        <button type="button" onclick="elegirPiedra()">Piedra
+        <button type="button" onclick="elegirPiedra()">
+            <img src="piedra.jfif" alt="piedra" width="500" height="600">
         </button>
-        <button type="button" onclick="elegirTijera()">Tijera
+        <button type="button" onclick="elegirTijera()">
+            <img src="tijera.png" alt="tijera" width="500" height="600">
         </button>
-        <button type="button" onclick="elegirPapel()">Papel
+        <button type="button" onclick="elegirPapel()">
+            <img src="papel.png" alt="papel" width="500" height="600">
         </button>
     </div>
+    <div id="resultados">
+        TENEMOS UN RESULTADO
+    </div>
+
+
+
 </body>
 
 </html>
